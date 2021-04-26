@@ -113,7 +113,7 @@ class OrganizationRepository
 				$closedOrganizationList[$id]['first_time_left']   = $row['time_left'];
 			}
 			if (empty($closedOrganizationList[$id]['next_day_of_week']) && mb_substr($row['time_left'], 0, 1) !== '-') {
-				// И если нашелся на этой неделе рабочий день в будущем то запомним и его
+				// И если нашелся на этой неделе рабочий день в будущем, то запомним и его
 				$closedOrganizationList[$id]['next_day_of_week'] = $row['day_of_week'];
 				$closedOrganizationList[$id]['next_open']        = $row['open'];
 				$closedOrganizationList[$id]['next_time_left']   = $row['time_left'];
@@ -129,7 +129,7 @@ class OrganizationRepository
 				$ret[$id]['opens_in'] = mb_substr($closedOrganization['next_time_left'],0,-3);
 				
 			} else {
-				// Расчитаем разницу между текщим временем и открытием в первый раочйи день следующей недели
+				// Расчитаем разницу между текщим временем и открытием в первый рабочйи день на следующей недели
 				$timeLeft = ($closedOrganization['first_day_of_week'] + 7 - $curDayOfWeek) * 24 * 60;
 				$ex = explode(':', $searchParams[':time']);
 				$curMinutes = intval($ex[0]) * 60 + intval($ex[1]);
