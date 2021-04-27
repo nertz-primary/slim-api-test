@@ -51,8 +51,8 @@ class OrganizationRepository
    public function fetchClosed(): array 
    {
 		$searchParams = $this->getNowSearchParams();
-		$searchParams[':time'] = "22:00"; 
-		$searchParams[':day_of_week'] = "7"; 
+		//$searchParams[':time'] = "22:00"; 
+		//$searchParams[':day_of_week'] = "7"; 
 		// Составим список всех закрытых на даный момент организаций
         $sqlClosedOrganizations = "
 			SELECT 
